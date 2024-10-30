@@ -726,6 +726,14 @@ USB/SD devices are connected. "
         fi
     fi
     backupname="stock-firmware-${boardName}-$(date +%Y%m%d).rom"
+
+
+    echo "\nUSB Device: $usb_device"
+    echo "Result:"
+    ls -lah /tmp/usb
+
+    echo ""
+
     echo_yellow "\nSaving firmware backup as ${backupname}"
     if ! cp /tmp/bios.bin /tmp/usb/${backupname}; then
         backup_fail "Failure copying stock firmware to USB; cannot proceed."
